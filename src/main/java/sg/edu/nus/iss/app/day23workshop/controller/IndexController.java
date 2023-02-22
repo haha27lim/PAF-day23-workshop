@@ -19,12 +19,14 @@ public class IndexController {
     @Autowired
     private OrderRepository orderRepo;
 
+    // GetMapping to view index page and pass an "order" model attribute
     @GetMapping("/")
     public String searchOrderForm(Model model) {
         model.addAttribute("order", new Order());
         return "index";
     }
 
+    // PostMapping to route HTTP post requests from index page, sets model attribute
     @PostMapping(path="/order/total")
     public String searchOrderSubmit(@ModelAttribute Order order, Model model) {
         Order orderDetails = orderRepo.getOrderDetails(order.getOrderId());
@@ -34,7 +36,7 @@ public class IndexController {
         return "order_total";
     }
 
-
+    // GetMapping to retrieve order details by ID, set model attribute
     @GetMapping(path="order/total/{orderId}", produces = MediaType.TEXT_HTML_VALUE)
     public String getOrderTotal (@PathVariable Integer orderId, Model model) {
 
