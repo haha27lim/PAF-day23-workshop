@@ -22,10 +22,4 @@ public class Order {
     private BigDecimal totalDiscountedPrice;
     private BigDecimal costPrice;
 
-    @Override
-    public String toString() {
-        return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", customerId=" + customerId + ", subTotal="
-                + subTotal + ", discount=" + discount + ", discountedPrice="
-                + totalDiscountedPrice + ", totalCost=" + costPrice + "]";
-    }    
 }
